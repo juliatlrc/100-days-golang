@@ -2,21 +2,59 @@ package annalyn
 
 // CanFastAttack can be executed only when the knight is sleeping.
 func CanFastAttack(knightIsAwake bool) bool {
-	panic("Please implement the CanFastAttack() function")
+	var canAttack bool
+
+	if !knightIsAwake {
+		canAttack = true
+		return canAttack
+	}
+	return (canAttack)
 }
 
 // CanSpy can be executed if at least one of the characters is awake.
 func CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake bool) bool {
-	panic("Please implement the CanSpy() function")
+	var canSpy bool
+	if knightIsAwake || archerIsAwake || prisonerIsAwake {
+		canSpy = true
+		return canSpy
+	} 
+	return canSpy
 }
 
 // CanSignalPrisoner can be executed if the prisoner is awake and the archer is sleeping.
 func CanSignalPrisoner(archerIsAwake, prisonerIsAwake bool) bool {
-	panic("Please implement the CanSignalPrisoner() function")
+	var CanBeExecuted bool
+
+    if !archerIsAwake && prisonerIsAwake {
+        CanBeExecuted = true
+        return(CanBeExecuted)
+    }
+
+    return (CanBeExecuted)
 }
+
 
 // CanFreePrisoner can be executed if the prisoner is awake and the other 2 characters are asleep
 // or if Annalyn's pet dog is with her and the archer is sleeping.
 func CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent bool) bool {
-	panic("Please implement the CanFreePrisoner() function")
+    var Can bool
+
+
+
+	if knightIsAwake && petDogIsPresent && !archerIsAwake {
+		Can = true
+		return Can
+	} else if !knightIsAwake && !archerIsAwake && petDogIsPresent {
+		Can = true
+		return Can
+	} else if !knightIsAwake && !archerIsAwake && !petDogIsPresent && prisonerIsAwake {
+		Can = true
+		return Can
+	} else {
+		Can = false
+		return Can
+	}
+
+	// dica aprendida é que: primeiro verifique os casos verdadeiros, dps joga no falso, ou ao contrário, depende da situacao
 }
+
